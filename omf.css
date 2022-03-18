@@ -1,0 +1,315 @@
+/**************************************variables**********************/
+/****************************mixin*************************/
+/*******************************keyframes*******************/
+@keyframes apparition {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/******************************header****************/
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+
+.logo {
+  margin: 1em 0;
+}
+.logo a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo i {
+  position: absolute;
+  left: 1em;
+  color: black;
+  font-size: 18px;
+}
+.logo img {
+  width: 40%;
+}
+
+.cover img {
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+}
+
+/*******************************Menu********************/
+.menu {
+  background-color: #F6F6F6;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
+  margin-top: -5em;
+  padding: 20px;
+  position: relative;
+}
+.menu .title h1 {
+  font-family: "Shrikhand", sans-serif;
+  margin: 1em 0;
+  padding-right: 1.5em;
+  font-size: 1.5rem;
+}
+.menu .title .heart {
+  position: relative;
+}
+.menu .title .heart::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "font awesome 5 free";
+  font-weight: 400;
+  content: "\f004";
+  font-size: 30px;
+  position: absolute;
+  right: 20px;
+  bottom: 20%;
+  transform: translateY(-50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: inherit;
+  opacity: 1;
+  transition: all 200ms ease-in-out;
+}
+.menu .title .heart::after {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "font awesome 5 free";
+  font-weight: 900;
+  content: "\f004";
+  font-size: 30px;
+  position: absolute;
+  right: 20px;
+  bottom: 20%;
+  transform: translateY(-50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+  background-image: linear-gradient(to top, #9356dc, #ff79da);
+}
+.menu .title .heart:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  flex-direction: row;
+  gap: 1.5rem;
+}
+.cards h3 {
+  border-bottom: medium solid #99E2D0;
+  max-width: 46px;
+}
+.cards .card {
+  display: flex;
+  background-color: white;
+  padding-left: 15px;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 15px;
+  box-shadow: 0 1px 5px gray;
+  margin-top: 10px;
+  line-height: 1.5;
+  overflow: hidden;
+  position: relative;
+  animation: apparition 0.8s;
+  animation-fill-mode: both;
+}
+.cards .card:nth-child(1) {
+  animation-delay: 250ms;
+}
+.cards .card:nth-child(2) {
+  animation-delay: 500ms;
+}
+.cards .card:nth-child(3) {
+  animation-delay: 750ms;
+}
+.cards .card:nth-child(4) {
+  animation-delay: 1000ms;
+}
+.cards .card:nth-child(5) {
+  animation-delay: 1250ms;
+}
+.cards .card_text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.cards .card h4 {
+  font-weight: normal;
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.cards .card p {
+  font-weight: bold;
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.cards .card_price {
+  display: flex;
+  padding: 15px;
+  padding-top: 30px;
+  margin-left: auto;
+}
+.cards .card .price_animation {
+  background-color: #99E2D0;
+  border-radius: 0 10px 10px 0;
+  width: 0;
+  min-width: 0%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  transform-origin: right;
+  transition: 200ms linear;
+}
+.cards .card .price_animation i {
+  display: grid;
+  place-items: center;
+  background-color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  color: #99E2D0;
+}
+.cards .card:hover .price_animation {
+  width: 10%;
+}
+.cards .card:hover .price_animation i {
+  animation: anim_price 700ms ease;
+}
+@keyframes anim_price {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.cmd {
+  text-align: center;
+  padding: 50px 0;
+}
+.cmd a {
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 15px 40px;
+  margin: 25px 0 0 30px;
+  transition: transform 200ms;
+  box-shadow: 1px 1px 12px 2px rgba(0, 0, 0, 0.34);
+  background-image: linear-gradient(to top, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
+}
+.cmd a:hover {
+  transform: scale(1.2);
+  opacity: 0.9;
+}
+
+/*****************************footer******************/
+footer {
+  background-color: #353535;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+}
+footer a {
+  color: white;
+}
+footer h3 {
+  font-family: "Shrikhand", sans-serif;
+  font-weight: unset;
+  font-size: 22px;
+  text-align: center;
+}
+footer ul {
+  padding: unset;
+  display: flex;
+  justify-content: center;
+}
+footer li {
+  padding-top: 10px;
+  padding: 20px;
+  list-style: none;
+}
+footer i {
+  padding-right: 5px;
+  text-decoration: none;
+}
+
+.fa-hands-helping {
+  font-size: 12px;
+}
+
+/**********************mobile*************************/
+@media screen and (max-width: 767px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    padding: 20px;
+  }
+  footer a {
+    color: white;
+  }
+  footer h3 {
+    font-family: "Shrikhand", sans-serif;
+    font-weight: unset;
+    font-size: 22px;
+    text-align: justify;
+  }
+  footer ul {
+    padding: unset;
+    display: flex;
+    flex-direction: column;
+  }
+  footer li {
+    padding-top: 10px;
+    padding: 5px 0;
+    list-style: none;
+  }
+  footer i {
+    padding-right: 5px;
+    text-decoration: none;
+  }
+}
+
+/*# sourceMappingURL=omf.css.map */
