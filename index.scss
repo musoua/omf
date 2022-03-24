@@ -1,11 +1,8 @@
 /**************************************variables**********************/
-$color-primary: #9356DC;
-$color-secondary: #FF79DA;
-$color-tertiary: #99E2D0;
-$color-background: #F6F6F6;
+@import 'variables.scss';
 $num-words:4;
 $anim-dur:3000ms;
-$anim-delay:$anim-dur / $num-words;
+$anim-delay:calc($anim-dur/$num-words);
 /***************************************mixins************************/
 
 @mixin bx-shadow {
