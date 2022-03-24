@@ -20,15 +20,16 @@ $color-background: #F6F6F6;
     
 }
 
-@mixin but{
+@mixin button{
     color: white;
     border: none;
     border-radius:30px;
     font-weight: 500;
     font-size: 16px;
-    padding: 15px 40px;
-    margin: 25px 0 0 30px;
+    padding: 15px 20px;
+    margin: auto;
     transition: transform 200ms;
+    cursor: pointer;
 }
 
 @mixin heart ($opacity:1,$font-weight:400, $color: inherit) {
@@ -65,7 +66,7 @@ $color-background: #F6F6F6;
          transform: rotate(360deg);
          }
          
-     }
+    }
     
 }
 
@@ -88,7 +89,7 @@ $color-background: #F6F6F6;
 
 .container {
     margin: auto;
-    }
+}
 
 a{
     text-decoration: none;
@@ -122,6 +123,7 @@ body {
     width: 100%;
     height: 40vh;
     object-fit: cover;
+    object-position: 50% 60%;
 }
 
 /*******************************Menu********************/
@@ -130,19 +132,21 @@ body {
     border-top-left-radius: 2em;
     border-top-right-radius: 2em;
     margin-top: -5em;
+    margin-bottom: 30px;
     padding: 20px;
     position: relative;
     .title{
         
         h1{
             font-family: "Shrikhand", sans-serif;
-            margin: 1em 0;
+            margin: 0.6em 0;
             padding-right: 1.5em;
             font-size: 1.5rem;
         }
     
         .heart{
             position: relative;
+            cursor: pointer;
             &::before{
                 @include heart;
             }
@@ -164,8 +168,8 @@ body {
     display: grid;
     grid-template-columns: repeat(3,1fr);
     flex-direction: row;
-    gap: 1.5rem;
-    
+    gap: 0.5rem;
+
     h3{
         border-bottom: medium solid #99E2D0;
         max-width: 46px;
@@ -176,15 +180,14 @@ body {
         background-color: white;
         padding-left: 15px;
         font-weight: bold;
-        font-size: 20px;
         border-radius: 15px;
         box-shadow: 0 1px 5px gray;
         margin-top: 10px;
         line-height: 1.5;
         overflow: hidden;   
-        position: relative;
         animation: apparition 0.8s;
         animation-fill-mode: both;
+        cursor: pointer; 
 
         @for $i from 1 through 5 {
             &:nth-child(#{$i}){
@@ -193,20 +196,18 @@ body {
         }
 
        &_text{
-            text-overflow: ellipsis;
             overflow: hidden;
         }
-
-        h4{
-            font-weight: normal;
+        p{
+            font-weight: bold;
             margin: 0;
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;
-        }
 
-        p{
-            font-weight: bold;
+        }
+        h4{
+            font-weight: normal;
             margin: 0;
             text-overflow: ellipsis;
             overflow: hidden;
@@ -216,7 +217,7 @@ body {
         &_price{
             display: flex;
             padding: 15px;
-            padding-top: 30px;
+            padding-top: 25px;
             margin-left: auto;
         }
 
@@ -246,7 +247,7 @@ body {
 
             i{
                 @include anim_price;
-                animation: anim_price 700ms ease;
+                animation: anim_price 400ms ease;
             }
         }
     }
@@ -254,14 +255,13 @@ body {
 
 .cmd{
     text-align: center;
-    padding: 50px 0;    
-    a{
-        @include but;
-        @include bx-shadow;
-        @include gradient(0.9);
-    }
-        
-    a:hover{
+    width:10em;
+
+    @include button;
+    @include bx-shadow;
+    @include gradient(0.9);
+
+    &:hover{
         transform: scale(1.2);
         opacity: 0.9;
     }
@@ -274,15 +274,15 @@ footer{
     padding: 20px 30px;
     display: flex;
     flex-direction: column;
-    a{
-        color: white;
-    }
-
+    margin-top: 30px;
+    
     h3{
         font-family: 'Shrikhand', sans-serif;
         font-weight:unset;
         font-size: 22px;
         text-align: center;
+        color: white;
+        cursor: pointer;
     }
 
     ul{
@@ -295,7 +295,8 @@ footer{
         padding-top: 10px;        
         padding: 20px;
         list-style: none;
-
+        color: white;
+        cursor: pointer;
     }
 
     i{
@@ -309,6 +310,18 @@ footer{
     font-size:12px;
 }
 
+
+/***************************Tablette*******************************/
+
+@media screen and (max-width: 991px){
+    .cards{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        
+    }
+    
+}
 
 /**********************mobile*************************/
 

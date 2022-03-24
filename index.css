@@ -44,7 +44,6 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  margin: 0;
 }
 
 a {
@@ -64,7 +63,7 @@ h3, p {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: loader 500ms 3100ms ease-in-out forwards;
+  animation: loader 800ms 3400ms ease-in-out forwards;
 }
 .loader .word {
   font-family: "Shrikhand", sans-serif;
@@ -73,12 +72,15 @@ h3, p {
   animation: words 3000ms both;
 }
 .loader .word--1 {
-  animation-delay: 1000ms;
+  animation-delay: 750ms;
 }
 .loader .word--2 {
-  animation-delay: 2000ms;
+  animation-delay: 1500ms;
 }
 .loader .word--3 {
+  animation-delay: 2250ms;
+}
+.loader .word--4 {
   animation-delay: 3000ms;
 }
 
@@ -109,6 +111,7 @@ header {
   padding: 5px;
   margin: 0;
   position: relative;
+  cursor: pointer;
 }
 header img {
   width: 40%;
@@ -130,6 +133,13 @@ header img {
 .city h2 {
   font-size: 15px;
 }
+.city .search {
+  border: none;
+  background-color: #e9e7e7;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
 
 /********************text d'accueil*************/
 .text_accueil {
@@ -146,37 +156,40 @@ header img {
 .text_accueil p {
   margin-bottom: 50px;
 }
-.text_accueil a {
+.text_accueil .btn {
+  width: 15em;
   color: white;
   border: none;
   border-radius: 30px;
   font-weight: 500;
   font-size: 16px;
-  padding: 15px 40px;
-  margin-top: 25px;
+  padding: 15px;
+  margin: auto;
   transition: transform 200ms;
+  cursor: pointer;
   box-shadow: 1px 1px 12px 2px rgba(0, 0, 0, 0.34);
   background-image: linear-gradient(to top, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
 }
-.text_accueil a:hover {
-  transform: scale(2);
+.text_accueil .btn:hover {
+  transform: scale(1.2);
   opacity: 0.9;
 }
 
-.fonct_liste {
+.fonct_list {
   counter-reset: list;
 }
-.fonct_liste h2 {
+.fonct_list h2 {
   padding: 30px 15px;
   text-align: center;
 }
-.fonct_liste a {
+.fonct_list .fonct_items {
   display: flex;
   gap: 20px;
   padding: 0 25px 40px 25px;
   margin: 20px;
+  cursor: pointer;
 }
-.fonct_liste li {
+.fonct_list .items {
   background-color: #F6F6F6;
   border: none;
   border-radius: 15px;
@@ -186,7 +199,7 @@ header img {
   list-style-type: none;
   position: relative;
 }
-.fonct_liste li::before {
+.fonct_list .items::before {
   content: counter(list);
   counter-increment: list;
   color: white;
@@ -200,6 +213,12 @@ header img {
   place-items: center;
   position: absolute;
   transform: translateY(32%);
+}
+.fonct_list :hover.items {
+  background-color: #e4d5f6;
+}
+.fonct_list :hover.items .icone {
+  color: #9356DC;
 }
 
 /***********************menu_restaurants**********************/
@@ -222,6 +241,7 @@ header img {
   position: relative;
   border-radius: 30px;
   background-color: white;
+  box-shadow: 1px 1px 12px 2px rgba(0, 0, 0, 0.34);
   transition: transform 250ms ease-in-out;
 }
 .menu_cards .card_default:hover {
@@ -231,6 +251,7 @@ header img {
   position: relative;
   border-radius: 30px;
   background-color: white;
+  box-shadow: 1px 1px 12px 2px rgba(0, 0, 0, 0.34);
   transition: transform 250ms ease-in-out;
 }
 .menu_cards .card_nv::before {
@@ -311,15 +332,15 @@ footer {
   padding: 20px 30px;
   display: flex;
   flex-direction: column;
-}
-footer a {
-  color: white;
+  margin-top: 30px;
 }
 footer h3 {
   font-family: "Shrikhand", sans-serif;
   font-weight: unset;
   font-size: 22px;
   text-align: center;
+  color: white;
+  cursor: pointer;
 }
 footer ul {
   padding: unset;
@@ -330,6 +351,8 @@ footer li {
   padding-top: 10px;
   padding: 20px;
   list-style: none;
+  color: white;
+  cursor: pointer;
 }
 footer i {
   padding-right: 5px;
@@ -340,12 +363,32 @@ footer i {
   font-size: 12px;
 }
 
-/**********************mobile*************************/
-@media screen and (max-width: 767px) {
-  .fonct_liste h2 {
+/***************************Tablette*******************************/
+@media screen and (max-width: 991px) {
+  .fonct_list h2 {
     text-align: justify;
   }
-  .fonct_liste a {
+  .fonct_list .fonct_items {
+    flex-direction: column;
+  }
+
+  .menu h2 {
+    text-align: justify;
+  }
+  .menu_cards {
+    grid-template-columns: repeat(1, 1fr);
+    margin: 0;
+  }
+  .menu img {
+    height: 225px;
+  }
+}
+/**********************mobile*************************/
+@media screen and (max-width: 767px) {
+  .fonct_list h2 {
+    text-align: justify;
+  }
+  .fonct_list .items {
     flex-direction: column;
   }
 
@@ -365,9 +408,6 @@ footer i {
     flex-direction: column;
     text-align: justify;
     padding: 20px;
-  }
-  footer a {
-    color: white;
   }
   footer h3 {
     font-family: "Shrikhand", sans-serif;
