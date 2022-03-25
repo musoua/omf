@@ -5,60 +5,7 @@ $anim-dur:3000ms;
 $anim-delay:calc($anim-dur/$num-words);
 /***************************************mixins************************/
 
-@mixin bx-shadow {
-    box-shadow: 1px 1px 12px 2px rgba(0,0,0,0.34);
-}
-
-@mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@mixin border {
-    border-radius: 30px;
-    background-color: white;
-    
-}
-
-@mixin gradient($opacity) {
-    background-image: linear-gradient(to top,rgba($color-primary,$opacity), rgba($color-secondary,$opacity));
-    
-}
-
-@mixin heart ($opacity:1,$font-weight:400, $color: inherit) {
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing:antialiased;
-    font-family: "font awesome 5 free";
-    font-weight: $font-weight;
-    content: "\f004";
-    font-size: 30px;
-    position: absolute;
-    right: 20px;
-    bottom: 20%;
-    transform: translateY(-50%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: $color;
-    opacity: $opacity;
-    transition: all 200ms ease-in-out;
-
-}
-
-@mixin button {
-    color: white;
-    border: none;
-    border-radius:30px;
-    font-weight: 500;
-    font-size: 16px;
-    padding: 15px;
-    margin:auto;
-    transition: transform 200ms;
-    cursor: pointer;
-}
+@import 'mixins.scss' ;
 
 /*******************************keyframes**************************/
 
@@ -114,7 +61,7 @@ a{
     color: inherit;
 }
 
-h3,p{
+h1,p{
     margin: 0;
 }
 
@@ -208,7 +155,7 @@ header{
     background-color:$color-background;
     text-align: center;
     padding-bottom: 60px;
-    h3{
+    h1{
         font-size: 30px;
         margin-top: 0;
         margin-bottom:20px;
@@ -377,7 +324,7 @@ footer{
     flex-direction: column;
     margin-top: 30px;
 
-    h3{
+    h1{
         font-family: 'Shrikhand', sans-serif;
         font-weight:unset;
         font-size: 22px;
@@ -479,7 +426,7 @@ footer{
         text-align: justify;
         padding: 20px;
         
-        h3{
+        h1{
             font-family: 'Shrikhand', sans-serif;
             font-weight:unset;
             font-size: 22px;

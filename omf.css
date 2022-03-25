@@ -1,4 +1,6 @@
 /**************************************variables**********************/
+/**************************************variables**********************/
+/****************************mixin*************************/
 /****************************mixin*************************/
 /*******************************keyframes*******************/
 @keyframes apparition {
@@ -127,9 +129,10 @@ body {
   flex-direction: row;
   gap: 0.5rem;
 }
-.cards h3 {
+.cards h2 {
   border-bottom: medium solid #99E2D0;
   max-width: 46px;
+  font-size: 20px;
 }
 .cards .card {
   display: flex;
@@ -170,7 +173,7 @@ body {
   overflow: hidden;
   white-space: nowrap;
 }
-.cards .card h4 {
+.cards .card h3 {
   font-weight: normal;
   margin: 0;
   text-overflow: ellipsis;
@@ -246,7 +249,7 @@ footer {
   flex-direction: column;
   margin-top: 30px;
 }
-footer h3 {
+footer h1 {
   font-family: "Shrikhand", sans-serif;
   font-weight: unset;
   font-size: 22px;
@@ -300,7 +303,7 @@ footer i {
   footer a {
     color: white;
   }
-  footer h3 {
+  footer h1 {
     font-family: "Shrikhand", sans-serif;
     font-weight: unset;
     font-size: 22px;
